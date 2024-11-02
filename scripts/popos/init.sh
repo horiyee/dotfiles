@@ -16,3 +16,29 @@ echo '                                                       /_/      '
 echo ""
 echo ""
 
+WORKSPACE="$HOME/workspace"
+DOTFILES="$WORKSPACE/dotfiles"
+
+echo ""
+echo "=== 1. $WORKSPACE ディレクトリの作成 ==="
+echo ""
+
+mkdir -p $WORKSPACE
+
+echo ""
+echo "=== 1. END $WORKSPACE ディレクトリの作成 ==="
+echo ""
+
+echo ""
+echo "=== 2. dotfiles リポジトリのクローン ==="
+echo ""
+
+if [ -d "$DOTFILES" ]; then
+	echo "$DOTFILES が既に存在するため、クローンをスキップしました"
+else
+	git clone https://github.com/horiyee/dotfiles.git "$DOTFILES"
+fi
+
+echo ""
+echo "=== 2. END dotfiles リポジトリのクローン ==="
+echo ""

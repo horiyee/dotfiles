@@ -1,3 +1,7 @@
+.PHONY: popos/init
+popos/init:
+	bash scripts/popos/init.sh
+
 .PHONY: bash/init
 bash/init:
 	cat ./templates/bash/.bashrc > ~/.bashrc
