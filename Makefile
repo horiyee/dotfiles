@@ -6,6 +6,10 @@ popos/init:
 popos/vscode/init:
 	cat ./templates/vscode/settings.json > ~/.config/Code/User/settings.json
 
+.PHONY: vscode/list-extensions
+vscode/list-extensions:
+	code --list-extensions
+
 .PHONY: bash/init
 bash/init:
 	cat ./templates/bash/.bashrc > ~/.bashrc
