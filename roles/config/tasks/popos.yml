@@ -5,3 +5,21 @@
         src: git/.gitconfig
         dest: "{{ popos_home_path }}/.gitconfig"
         owner: "{{ popos_user }}"
+
+    - name: "Create {{ popos_home_path }}/.config"
+      file:
+        path: "{{ popos_home_path }}/.config"
+        state: directory
+        owner: "{{ popos_user }}"
+
+    - name: "Create {{ popos_home_path }}/.config/git"
+      file:
+        path: "{{ popos_home_path }}/.config/git"
+        state: directory
+        owner: "{{ popos_user }}"
+
+    - name: "Create {{ popos_home_path }}/.config/git/ignore"
+      template:
+        src: .config/git/ignore
+        dest: "{{ popos_home_path }}/.config/git/ignore"
+        owner: "{{ popos_user }}"

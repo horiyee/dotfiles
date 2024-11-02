@@ -2,6 +2,10 @@
 popos/init:
 	bash scripts/popos/init.sh
 
+.PHONY: popos/vscode/init
+popos/vscode/init:
+	cat ./templates/vscode/settings.json > ~/.config/Code/User/settings.json
+
 .PHONY: bash/init
 bash/init:
 	cat ./templates/bash/.bashrc > ~/.bashrc

@@ -4,3 +4,35 @@
       community.general.homebrew:
         path: "{{ popos_homebrew_path }}"
         update_homebrew: yes
+
+    - name: Install packages via Homebrew
+      community.general.homebrew:
+        name:
+          - zip
+          - unzip
+          - jq
+          - fq
+          - gh
+          - tree
+          - shellcheck
+          - openjdk@11
+          - sbt
+          - neovim
+          - tmux
+        path: "{{ popos_homebrew_path }}"
+        state: latest
+
+    - name: Clone AstroNvim
+      become: yes
+      become_user: "{{ popos_user }}"
+      git:
+        repo: https://github.com/AstroNvim/template
+        dest: "{{ popos_home_path }}/.config/nvim"
+        depth: 1
+
+    - name: Remove AstroNvim template's Git connection
+      become: yes
+      become_user: "{{ popos_user }}"
+      file:
+        path: "{{ popos_home_path }}/.config/nvim/.git"
+        state: absent
