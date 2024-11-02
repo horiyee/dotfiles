@@ -5,7 +5,7 @@
 1. Initialize
 
    ```
-
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/horiyee/dotfiles/HEAD/scripts/popos/init.sh)"
    ```
 
 2. Install Homebrew

@@ -1,0 +1,4 @@
+---
+popos_user: "{{ ansible_facts['env']['USER'] }}"
+popos_home_path: "{{ ansible_facts['env']['HOME'] }}"
+popos_homebrew_path: "/home/linuxbrew/.linuxbrew/bin/brew"

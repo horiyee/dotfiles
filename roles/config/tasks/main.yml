@@ -1,0 +1,4 @@
+---
+- name: Copy config for Pop!_OS
+  import_tasks: popos.yml
+  when: ansible_os_family == "Debian"

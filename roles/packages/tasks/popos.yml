@@ -1,0 +1,6 @@
+---
+- block:
+    - name: Update Homebrew
+      community.general.homebrew:
+        path: "{{ popos_homebrew_path }}"
+        update_homebrew: yes

@@ -1,0 +1,3 @@
+---
+popos_user: "{{ ansible_facts['env']['USER'] }}"
+popos_home_path: "{{ ansible_facts['env']['HOME'] }}"

@@ -1,0 +1,7 @@
+---
+- block:
+    - name: "Create {{ popos_home_path }}/.gitconfig"
+      template:
+        src: git/.gitconfig
+        dest: "{{ popos_home_path }}/.gitconfig"
+        owner: "{{ popos_user }}"
