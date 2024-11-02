@@ -10,48 +10,24 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: init
-        run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          make popos/init bash/init
-
-      - name: lint
-        run: |
-          source ~/.bashrc
-          make ansible/init ansible/lint
-        shell: bash {0}
+      - run: make popos/init bash/init
+      - run: echo "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin" >> $GITHUB_PATH
+      - run: make ansible/init ansible/lint
 
   test:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: init
-        run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          make popos/init bash/init
-
-      - name: test
-        run: |
-          source ~/.bashrc
-          make ansible/init ansible/test
-        shell: bash {0}
+      - run: make popos/init bash/init
+      - run: echo "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin" >> $GITHUB_PATH
+      - run: make ansible/init ansible/test
 
   check:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: init
-        run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          make popos/init bash/init
-
-      - name: check
-        run: |
-          source ~/.bashrc
-          make ansible/init ansible/check
-        shell: bash {0}
+      - run: make popos/init bash/init
+      - run: echo "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin" >> $GITHUB_PATH
+      - run: make ansible/init ansible/check
