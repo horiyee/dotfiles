@@ -10,7 +10,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - run: make ansible/init ansible/lint
+
+      - name: init
+        run: make popos/init homebrew/init bash/init
+
+      - name: lint
+        run: |
+          source ~/.bashrc
+          make ansible/init ansible/lint
+        shell: bash {0}
 
   test:
     runs-on: ubuntu-latest
@@ -19,12 +27,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: init
-        run: make popos/init bash/init ansible/init
+        run: make popos/init homebrew/init bash/init
 
       - name: test
         run: |
           source ~/.bashrc
-          make ansible/test
+          make ansible/init ansible/test
         shell: bash {0}
 
   check:
@@ -32,4 +40,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - run: make ansible/init ansible/check
+
+      - name: init
+        run: make popos/init homebrew/init bash/init
+
+      - name: check
+      - run: |
+          source ~/.bashrc
+          make ansible/init ansible/check
+        shell: bash {0}
