@@ -48,7 +48,7 @@ jobs:
           make popos/init homebrew/init bash/init
 
       - name: check
-      - run: |
+        run: |
           source ~/.bashrc
           make ansible/init ansible/check
         shell: bash {0}
