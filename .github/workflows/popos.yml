@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - run: make popos/init bash/init
+      - run: make popos/init
       - run: echo "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin" >> $GITHUB_PATH
       - run: make ansible/init ansible/lint
 
@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - run: make popos/init bash/init
+      - run: make popos/init
       - run: echo "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin" >> $GITHUB_PATH
       - run: make ansible/init ansible/test
 
@@ -28,6 +28,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - run: make popos/init bash/init
+      - run: make popos/init
       - run: echo "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin" >> $GITHUB_PATH
       - run: make ansible/init ansible/check
