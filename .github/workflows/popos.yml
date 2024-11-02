@@ -13,7 +13,8 @@ jobs:
 
       - name: init
         run: |
-          make popos/init homebrew/init bash/init
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          make popos/init bash/init
 
       - name: lint
         run: |
@@ -29,7 +30,8 @@ jobs:
 
       - name: init
         run: |
-          make popos/init homebrew/init bash/init
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          make popos/init bash/init
 
       - name: test
         run: |
@@ -45,7 +47,8 @@ jobs:
 
       - name: init
         run: |
-          make popos/init homebrew/init bash/init
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          make popos/init bash/init
 
       - name: check
         run: |
