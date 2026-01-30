@@ -28,3 +28,11 @@ uv/venv/activate:
 .PHONY: ansible/init
 ansible/init: uv/venv/activate
 	uv pip install ansible
+
+.PHONY: ansible/setup
+ansible/setup: ansible/init
+	uv run ansible-playbook setup.yml -vv --ask-become-pass
+
+.PHONY: ansible/lint
+ansible/lint: ansible/init
+	uv run ansible-playbook setup.yml -vvvv --syntax-check
