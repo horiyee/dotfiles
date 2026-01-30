@@ -3,3 +3,21 @@
   community.general.homebrew:
     path: "{{ macos_homebrew_path }}"
     update_homebrew: yes
+
+- name: Install packages via Homebrew
+  community.general.homebrew:
+    name:
+      - colima
+      - docker
+      - docker-compose
+      - docker-credential-helper
+      - gh
+      - ghq
+      - jq
+      - fq
+      - tree
+      - shellcheck
+      - nodenv
+      - pnpm
+    path: "{{ macos_homebrew_path }}"
+    state: latest
