@@ -1,3 +1,6 @@
+.ONESHELL:
+SHELL := /bin/bash
+
 .PHONY: macos/vscode/init
 macos/vscode/init:
 	cat templates/vscode/settings.json > ~/Library/Application\ Support/Code/User/settings.json
@@ -16,3 +19,12 @@ uv/install:
 .PHONY: uv/python/install
 uv/python/install:
 	uv python install 3.14
+
+.PHONY: uv/venv/activate
+uv/venv/activate:
+	uv venv --clear
+	. .venv/bin/activate
+
+.PHONY: ansible/init
+ansible/init: uv/venv/activate
+	uv pip install ansible
