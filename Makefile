@@ -5,3 +5,14 @@ macos/vscode/init:
 .PHONY: vscode/list-extensions
 vscode/list-extensions:
 	code --list-extensions
+
+.PHONY: uv/init
+uv/init: uv/install uv/python/install
+
+.PHONY: uv/install
+uv/install:
+	curl -LsSf https://astral.sh/uv/install.sh | sh
+
+.PHONY: uv/python/install
+uv/python/install:
+	uv python install 3.14
