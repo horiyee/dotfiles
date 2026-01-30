@@ -20,19 +20,19 @@ uv/install:
 uv/python/install:
 	uv python install 3.14
 
-.PHONY: uv/venv/activate
-uv/venv/activate:
-	uv venv --clear
-	. .venv/bin/activate
-
 .PHONY: ansible/init
-ansible/init: uv/venv/activate
-	uv pip install ansible
+ansible/init:
+	uv venv --clear
+	. .venv/bin/activate && uv pip install ansible
 
 .PHONY: ansible/setup
-ansible/setup: ansible/init
+ansible/setup:
 	uv run ansible-playbook setup.yml -vv --ask-become-pass
 
+.PHONY: ansible/check
+ansible/check:
+	uv run ansible-playbook setup.yml --check --diff
+
 .PHONY: ansible/lint
-ansible/lint: ansible/init
+ansible/lint:
 	uv run ansible-playbook setup.yml -vvvv --syntax-check
