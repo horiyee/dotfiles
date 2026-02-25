@@ -16,6 +16,8 @@
       - jq
       - fq
       - tree
+      - tmux
+      - neovim
       - shellcheck
       - nodenv
       - pnpm
@@ -26,6 +28,7 @@
   community.general.homebrew_cask:
     name:
       - bitwarden
+      - ghostty
       - google-chrome
       - slack
       - spotify
