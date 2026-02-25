@@ -2,6 +2,10 @@
 - hosts: localhost
   connection: local
   gather_facts: yes
+  pre_tasks:
+    - name: Include macOS variables
+      include_vars: vars/macos.yml
+      when: ansible_facts['os_family'] == "Darwin"
   roles:
     - config
     - packages
