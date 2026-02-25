@@ -34,4 +34,4 @@
       - spotify
       - visual-studio-code
     path: "{{ macos_homebrew_path }}"
-    state: latest
+    state: present
