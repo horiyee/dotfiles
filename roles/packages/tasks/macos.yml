@@ -21,3 +21,14 @@
       - pnpm
     path: "{{ macos_homebrew_path }}"
     state: latest
+
+- name: Install packages via Homebrew Cask
+  community.general.homebrew_cask:
+    name:
+      - bitwarden
+      - google-chrome
+      - slack
+      - spotify
+      - visual-studio-code
+    path: "{{ macos_homebrew_path }}"
+    state: latest

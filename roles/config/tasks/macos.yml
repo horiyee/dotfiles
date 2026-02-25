@@ -1,0 +1,30 @@
+---
+- name: "Create {{ macos_home_path }}/.zshrc"
+  template:
+    src: zsh/.zshrc
+    dest: "{{ macos_home_path }}/.zshrc"
+    owner: "{{ macos_user }}"
+
+- name: "Create {{ macos_home_path }}/.gitconfig"
+  template:
+    src: git/.gitconfig
+    dest: "{{ macos_home_path }}/.gitconfig"
+    owner: "{{ macos_user }}"
+
+- name: "Create {{ macos_home_path }}/.config"
+  file:
+    path: "{{ macos_home_path }}/.config"
+    state: directory
+    owner: "{{ macos_user }}"
+
+- name: "Create {{ macos_home_path }}/.config/git"
+  file:
+    path: "{{ macos_home_path }}/.config/git"
+    state: directory
+    owner: "{{ macos_user }}"
+
+- name: "Create {{ macos_home_path }}/.config/git/ignore"
+  template:
+    src: .config/git/ignore
+    dest: "{{ macos_home_path }}/.config/git/ignore"
+    owner: "{{ macos_user }}"

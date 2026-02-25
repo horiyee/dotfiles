@@ -1,0 +1,3 @@
+---
+macos_user: "{{ ansible_facts['env']['USER'] }}"
+macos_home_path: "{{ ansible_facts['env']['HOME'] }}"
