@@ -9,21 +9,18 @@ macos/vscode/init:
 vscode/list-extensions:
 	code --list-extensions
 
-.PHONY: uv/init
-uv/init: uv/install uv/python/install
-
 .PHONY: uv/install
 uv/install:
 	curl -LsSf https://astral.sh/uv/install.sh | sh
 
 .PHONY: uv/python/install
 uv/python/install:
-	uv python install 3.14
+	uv python install 3.12
 
 .PHONY: ansible/init
 ansible/init:
-	uv venv --clear
-	. .venv/bin/activate && uv pip install ansible
+	uv venv --clear --seed
+	uv pip install ansible
 
 .PHONY: ansible/setup
 ansible/setup:
