@@ -13,6 +13,10 @@ vscode/list-extensions:
 uv/install:
 	curl -LsSf https://astral.sh/uv/install.sh | sh
 
+.PHONY: uv/update
+uv/update:
+	uv self update
+
 .PHONY: uv/python/install
 uv/python/install:
 	uv python install 3.12
