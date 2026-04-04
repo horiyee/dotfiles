@@ -37,3 +37,26 @@ ansible/check:
 .PHONY: ansible/lint
 ansible/lint:
 	uv run ansible-playbook setup.yml -vvvv --syntax-check
+
+.PHONY: init
+init: home-manager/init
+
+.PHONY: home-manager/init
+home-manager/init:
+	nix run home-manager/master -- switch --flake .
+
+.PHONY: home-manager/switch
+home-manager/switch:
+	home-manager switch --flake .
+
+.PHONY: nixpkgs/update
+nixpkgs/update:
+	nix flake update nixpkgs
+
+.PHONY: home-manager/update
+home-manager/update:
+	nix flake update home-manager
+
+.PHONY: home-manager/uninstall
+home-manager/uninstall:
+	home-manager uninstall
