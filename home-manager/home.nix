@@ -35,7 +35,20 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    colima
+    docker
+    docker-compose
+    docker-credential-helpers
+    fq
+    gh
+    ghq
     git
+    jq
+    neovim
+    pnpm
+    shellcheck
+    tmux
+    tree
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
