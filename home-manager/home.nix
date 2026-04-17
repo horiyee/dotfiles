@@ -4,7 +4,7 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "kaito";
-  home.homeDirectory = "/Users/kaito";
+  home.homeDirectory = "/home/kaito";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -35,7 +35,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
-    colima
     docker
     docker-compose
     docker-credential-helpers
@@ -43,6 +42,7 @@
     gh
     ghq
     git
+    gnumake
     jq
     neovim
     pnpm
